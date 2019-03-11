@@ -22,7 +22,7 @@
                             <tbody>
                             @foreach($sliders as $slider)
                                 <tr>
-                                    <td>{{$slider->id}}</td>
+                                    <td>{{ $loop->index + 1 }}</td>
                                     <td> <img src="{{url('')}}/images/{{$slider->image}}" style="width: 75px; height: 75px;" class="img-fluid"></td>
                                     <td>
                                         @if($slider->status == 1)
