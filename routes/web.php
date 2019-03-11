@@ -24,3 +24,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//slider
+Route::get('slider/create','Admin\SliderController@create')->name('slider.create');
+Route::post('slider/create','Admin\SliderController@store')->name('slider.store');
+Route::get('slider-all','Admin\SliderController@index')->name('slider.index');
+Route::delete('slider-delete/{id}','Admin\SliderController@destroy')->name('slider.destroy');
+Route::get('slider-active/{id}','Admin\SliderController@active')->name('active');
+Route::get('slider-unactive/{id}','Admin\SliderController@unactive')->name('unactive');
+

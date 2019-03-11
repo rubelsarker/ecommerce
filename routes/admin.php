@@ -39,6 +39,7 @@
     Route::fallback(function () {
         return abort(404);
     });
-    Route::get('layout',function (){
-        return view('backend.layout');
-    });
+
+
+
+
