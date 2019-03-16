@@ -1,35 +1,70 @@
 <div class="col-sm-3">
     <div class="left-sidebar">
         <h2>Category</h2>
-            @php
-                $categories = \App\Category::where(['parent_id'=>0])->get();
-            @endphp
+            {{--@php--}}
+                {{--$categories = \App\Category::where(['parent_id'=>0])->get();--}}
+            {{--@endphp--}}
+
+        {{--<div class="panel-group category-products" id="accordian"><!--category-productsr-->--}}
+            {{--@foreach($categories as $category)--}}
+                {{--@php--}}
+                    {{--$subCategories = \App\Category::where(['parent_id'=>$category->id])->get();--}}
+                {{--@endphp--}}
+                {{--<div class="panel panel-default">--}}
+                    {{--<div class="panel-heading">--}}
+                            {{--<h4 class="panel-title">--}}
+                                {{--<a data-toggle="collapse" data-parent="#accordian" href="#{{$category->id}}">--}}
+                                    {{--<span class="badge pull-right"><i class="fa fa-plus"></i></span>--}}
+                                    {{--{{$category->name}}--}}
+                                {{--</a>--}}
+                            {{--</h4>--}}
+                    {{--</div>--}}
+                    {{--<div id="{{$category->id}}" class="panel-collapse collapse">--}}
+                        {{--<div class="panel-body">--}}
+                            {{--<ul>--}}
+                                {{--@foreach($subCategories as $subcat)--}}
+                                    {{--<li><a href="#">{{$subcat->name}}</a></li>--}}
+                                {{--@endforeach--}}
+                            {{--</ul>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--@endforeach--}}
+        {{--</div>--}}
+
+        @php
+            $categories = \App\Category::where(['parent_id'=>0])->get();
+        @endphp
 
         <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-            @foreach($categories as $category)
-                @php
-                    $subCategories = \App\Category::where(['parent_id'=>$category->id])->get();
-                @endphp
+
+                {{--@php--}}
+                    {{--$subCategories = \App\Category::where(['parent_id'=>$category->id])->get();--}}
+                {{--@endphp--}}
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    @foreach($categories as $category)
+                        <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordian" href="#{{$category->id}}">
                                     <span class="badge pull-right"><i class="fa fa-plus"></i></span>
                                     {{$category->name}}
                                 </a>
                             </h4>
-                    </div>
-                    <div id="{{$category->id}}" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <ul>
-                                @foreach($subCategories as $subcat)
-                                    <li><a href="#">{{$subcat->name}}</a></li>
-                                @endforeach
-                            </ul>
                         </div>
-                    </div>
+
+                        <div id="{{$category->id}}" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul>
+                                    @foreach($category->categories as $subcat)
+                                        <li><a href="#">{{$subcat->name}}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-            @endforeach
+
+        </div>
         <div class="brands_products"><!--brands_products-->
             <h2>Brands</h2>
             <div class="brands-name">
