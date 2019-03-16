@@ -98,6 +98,11 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Add Slider</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('category.create')}}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Category</span></a>
+    </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">

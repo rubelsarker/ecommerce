@@ -43,6 +43,8 @@ Route::delete('slider-delete/{id}','Admin\SliderController@destroy')->name('slid
 Route::get('slider-active/{id}','Admin\SliderController@active')->name('active');
 Route::get('slider-unactive/{id}','Admin\SliderController@unactive')->name('unactive');
 
+Route::resource('category','Admin\CategoryController');
+
 
 
 
